@@ -1,70 +1,173 @@
-# Getting Started with Create React App
+# 🎮 Esports Tournament Management System (React + Node.js)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a **web-based Esports Tournament Registration &
+Management System** built with **React** for the frontend and
+**Node.js/Express** for the backend. It allows players, teams, and
+organizers to participate in and manage esports tournaments. It supports
+popular games like BGMI, Clash of Clans, Free Fire, and Valorant, with
+modules for registration, payments, schedules, and results.
 
-## Available Scripts
+------------------------------------------------------------------------
 
-In the project directory, you can run:
+## 📂 Project Structure
 
-### `npm start`
+    esports-frontend/         # React frontend
+    │-- public/               # Static files
+    │-- src/
+    │   ├── components/       # Reusable UI components (buttons, forms, cards)
+    │   ├── pages/            # Pages (Home, Registration, Dashboard, Leaderboard)
+    │   ├── services/         # API calls using Axios
+    │   └── App.jsx           
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    esports-backend/         # Node.js + Express backend
+    │-- controllers/          # Handle API logic
+    │-- routes/               # Express routes (auth, teams, tournaments, matches)
+    │-- models/               # Database models (using Sequelize or Prisma)
+    │-- middleware/           # Authentication (JWT)
+    │-- config/               # DB connection and environment variables
+    │-- server.js             # Entry point
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+------------------------------------------------------------------------
 
-### `npm test`
+## 🌟 Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   📝 **User & Team Registration** -- Players and teams can sign up for
+    tournaments.
+-   💳 **Payment Integration** -- Secure payment handling via
+    third-party APIs.
+-   📜 **Rules & Regulations** -- Game-wise rules and eligibility
+    guidelines.
+-   📅 **Match Scheduling** -- Automated notifications and schedule
+    updates.
+-   🏆 **Leaderboard & Rankings** -- Displays top teams and players.
+-   📡 **Live Updates** -- Real-time scores, stats, and optional
+    streaming integration.
+-   👥 **Community Building** -- Platform for gamers to connect and
+    compete.
+-   📩 **Email Notifications** -- Confirmation emails and alerts using
+    NodeMailer.
 
-### `npm run build`
+------------------------------------------------------------------------
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   **Frontend:** React, TailwindCSS, Axios, React Router
+-   **Backend:** Node.js, Express.js
+-   **Database:** MySQL (with Sequelize or Prisma ORM)
+-   **Authentication:** JWT
+-   **Email Service:** NodeMailer
+-   **Tools:** VS Code, Git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+------------------------------------------------------------------------
 
-### `npm run eject`
+## ⚡ Installation & Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1️⃣ Backend Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+``` bash
+git clone https://github.com/your-username/eSports-tournament.git
+cd eSports-tournament/esports-backend
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2.  Install dependencies:
 
-## Learn More
+``` bash
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3.  Create a `.env` file and configure:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```{=html}
+<!-- -->
+```
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=
+    DB_NAME=esports_db
+    JWT_SECRET=your_jwt_secret
+    PORT=5000
 
-### Code Splitting
+4.  Import the MySQL database:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+``` bash
+mysql -u root -p
+CREATE DATABASE esports_db;
+SOURCE docs/db_register.sql;
+```
 
-### Analyzing the Bundle Size
+5.  Start backend server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+``` bash
+npm run dev
+```
 
-### Making a Progressive Web App
+------------------------------------------------------------------------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2️⃣ Frontend Setup
 
-### Advanced Configuration
+1.  Navigate to frontend:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+``` bash
+cd ../esports-frontend
+```
 
-### Deployment
+2.  Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+``` bash
+npm install
+```
 
-### `npm run build` fails to minify
+3.  Start React development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+``` bash
+npm run dev
+```
+
+4.  Open in browser:
+
+```{=html}
+<!-- -->
+```
+    http://localhost:5173
+
+------------------------------------------------------------------------
+
+## 📸 Screenshots
+
+*Frontend pages now use React components with dynamic API data.*
+
+-   **Homepage / Dashboard**
+-   **Registration Forms**
+-   **Payment Page**
+-   **Match Schedules & Leaderboard**
+
+
+
+------------------------------------------------------------------------
+
+## 📂 Database
+
+The project uses MySQL with the following main tables:
+- `bgmi_register` -- BGMI player/team registration
+- `coc_register` -- Clash of Clans registration
+- `free_register` -- Free Fire registration
+- `valo_register` -- Valorant registration
+- `tbl_register` -- Generic registration table
+
+
+------------------------------------------------------------------------
+
+## 👩‍💻 Contributors
+
+-   Dilip Choudhary
+-   Lalit Yelane
+-   Shreyas Barawkar
+
+------------------------------------------------------------------------
+
+## 📜 License
+
+This project is for educational purposes only. Not intended for
+commercial or clinical use.
