@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './style.css';
 import 'boxicons/css/boxicons.min.css';
+import BgmiRegister from './components/BgmiRegister';
+
 const slidesData = [
   {
     img: '/images/bgmi2.jpg',
@@ -8,9 +11,8 @@ const slidesData = [
     rightTitle: 'MI',
     gameTitle: '[ Battlegrounds Mobile India ]',
     desc: 'Set in a virtual world, BATTLEGROUNDS MOBILE INDIA is a battle royale game where multiple players employ strategies to fight and be the last man standing on the battlegrounds.',
-    register: 'bgmi_regi_index.html',
-    rules: 'bgmi_rules_index.html',
-    audio: 'bgmi1.mp3'
+    register: '/bgmi-register',
+    rules: '/bgmi-rules'
   },
   {
     img: '/images/coc.jpg',
@@ -18,8 +20,8 @@ const slidesData = [
     rightTitle: 'C',
     gameTitle: '[ Clash of Clans ]',
     desc: 'Epic combat strategy game. Build your village, train your troops & go to battle! Mustachioed Barbarians, fire wielding Wizards, and other unique troops are waiting for you! Enter the world of Clash!',
-    register: 'coc_regi_index.html',
-    rules: 'coc_rules_index.html'
+    register: '/coc-register',
+    rules: '/coc-rules'
   },
   {
     img: '/images/2.jpg',
@@ -27,8 +29,8 @@ const slidesData = [
     rightTitle: 'RANT',
     gameTitle: '[ Valorant ]',
     desc: 'Valorant is a team-based first-person tactical hero shooter set in the near future. Players play as one of a set of Agents, characters based on several countries and cultures around the world.',
-    register: 'valo_regi_index.html',
-    rules: 'valo_rules_index.html'
+    register: '/valo-register',
+    rules: '/valo-rules'
   },
   {
     img: '/images/b.jpg',
@@ -36,31 +38,28 @@ const slidesData = [
     rightTitle: 'FIRE',
     gameTitle: '[ Free Fire ]',
     desc: 'Free Fire is the ultimate survival shooter game available on mobile. Each 10-minute game places you on a remote island where you are pit against 49 other players, all seeking survival.',
-    register: 'free_regi_index.html',
-    rules: 'free_rules_index.html'
+    register: '/freefire-register',
+    rules: '/freefire-rules'
   }
 ];
 
-function App() {
-  const [current, setCurrent] = useState(0);
-
-  const nextSlide = () => setCurrent((current + 1) % slidesData.length);
-  const prevSlide = () => setCurrent((current - 1 + slidesData.length) % slidesData.length);
-
+function Home({ slidesData, current, nextSlide, prevSlide }) {
   return (
     <div>
       <header className="header">
-        <div className="esports"><a href="#" className="logo">eSports</a></div>
+        <div className="esports">
+          <Link to="/" className="logo">eSports</Link>
+        </div>
         <div className="social-media">
-          <a href="#"><i className='bx bxl-twitter'></i></a>
-          <a href="#"><i className='bx bxl-facebook'></i></a>
-          <a href="#"><i className='bx bxl-telegram'></i></a>
-          <a href="#"><i className='bx bxl-instagram'></i></a>
+          <Link to="#"><i className='bx bxl-twitter'></i></Link>
+          <Link to="#"><i className='bx bxl-facebook'></i></Link>
+          <Link to="#"><i className='bx bxl-telegram'></i></Link>
+          <Link to="#"><i className='bx bxl-instagram'></i></Link>
         </div>
         <nav className="navbar">
-          <a href="update_index.html">News & Updates</a>
-          <a href="https://www.youtube.com/watch?v=6pXCN2BpKWc">Live eSports</a>
-          <a href="contact_index.html">Contact</a>
+          <Link to="/updates">News & Updates</Link>
+          <a href="https://www.youtube.com/watch?v=6pXCN2BpKWc" target="_blank" rel="noopener noreferrer">Live eSports</a>
+          <Link to="/contact">Contact</Link>
         </nav>
       </header>
 
@@ -76,13 +75,10 @@ function App() {
                 <div className="content">
                   <h3>{slide.gameTitle}</h3>
                   <p>{slide.desc}</p>
-                  {slide.audio && (
-                    <audio id="backgroundAudio" preload="auto" autoPlay loop>
-                      <source src={slide.audio} type="audio/mp3" />
-                    </audio>
-                  )}
-                  <a href={slide.register} className="btn">Register</a>
-                  <a href={slide.rules} className="btn">Rules & Regulations</a>
+                  <div className="btn-group">
+                    <Link to={slide.register} className="btn">Register</Link>
+                    <Link to={slide.rules} className="btn">Rules & Regulations</Link>
+                  </div>
                 </div>
               </div>
               <div className="right-info">
@@ -101,6 +97,33 @@ function App() {
         </div>
       </section>
     </div>
+  );
+}
+
+function App() {
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () => setCurrent((current + 1) % slidesData.length);
+  const prevSlide = () => setCurrent((current - 1 + slidesData.length) % slidesData.length);
+
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              slidesData={slidesData}
+              current={current}
+              nextSlide={nextSlide}
+              prevSlide={prevSlide}
+            />
+          }
+        />
+        <Route path="/bgmi-register" element={<BgmiRegister />} />
+        {/* Add more routes for other registration and rules pages as needed */}
+      </Routes>
+    </Router>
   );
 }
 
