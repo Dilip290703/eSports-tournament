@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './style.css';
 import 'boxicons/css/boxicons.min.css';
 import BgmiRegister from './components/BgmiRegister';
+import CocRegister from './components/CocRegister';
+
 
 const slidesData = [
   {
@@ -121,6 +123,7 @@ function App() {
           }
         />
         <Route path="/bgmi-register" element={<BgmiRegister />} />
+        <Route path="/coc-register" element={<CocRegister />} />
         {/* Add more routes for other registration and rules pages as needed */}
       </Routes>
     </Router>
