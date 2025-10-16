@@ -5,6 +5,7 @@ import 'boxicons/css/boxicons.min.css';
 import BgmiRegister from './components/BgmiRegister';
 import CocRegister from './components/CocRegister';
 import ValoRegister from './components/ValoRegister';
+import FreeRegister from './components/FreeRegister';
 
 const slidesData = [
   {
@@ -125,6 +126,7 @@ function App() {
         <Route path="/bgmi-register" element={<BgmiRegister />} />
         <Route path="/coc-register" element={<CocRegister />} />
         <Route path="/valo-register" element={<ValoRegister />} />
+        <Route path="/freefire-register" element={<FreeRegister />} />
         {/* Add more routes for other registration and rules pages as needed */}
       </Routes>
     </Router>
