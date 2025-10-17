@@ -17,9 +17,9 @@ const ValoRegister = () => {
   return (
     <div>
       {/* Header Navigation */}
-      <header className="header">
-        <nav className="navbar">
-          <a href="index.html">Home</a>
+      <header className="valo-header">
+        <nav className="valo-navbar">
+          <a href="/">Home</a>
           <a href="update_index.html">News & Updates</a>
           <a
             href="https://www.youtube.com/channel/UC1HnomUTgEeItSfDI0Pak9g"
@@ -33,16 +33,16 @@ const ValoRegister = () => {
       </header>
 
       {/* Background */}
-      <div className="background"></div>
+      <div className="valo-background"></div>
 
       {/* Main Container */}
-      <div className="container">
-        <div className="content">
-          <div className="esports">
-            <h2 className="logo">eSports</h2>
+      <div className="valo-container">
+        <div className="valo-content">
+          <div className="valo-esports">
+            <h2 className="valo-logo">eSports</h2>
           </div>
 
-          <div className="text-sci">
+          <div className="valo-text-sci">
             <h2>
               Welcome!
               <br />
@@ -52,7 +52,7 @@ const ValoRegister = () => {
               Fill the information below to participate in the Valorant eSports
               Tournament
             </p>
-            <div className="social-icons">
+            <div className="valo-social-icons">
               <a href="#">
                 <i className="bx bxl-twitter"></i>
               </a>
@@ -70,13 +70,13 @@ const ValoRegister = () => {
         </div>
 
         {/* Registration Form */}
-        <div className={`logreg-box${isRegisterActive ? " active" : ""}`}>
-          <div className="form-box login">
+        <div className={`valo-logreg-box${isRegisterActive ? " active" : ""}`}>
+          <div className="valo-form-box valo-login">
             <form action="valo_contact_thanks_index.php" method="POST">
               <h2>Registration Form</h2>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="valo-input-box">
+                <span className="valo-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -88,8 +88,8 @@ const ValoRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="valo-input-box">
+                <span className="valo-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -103,8 +103,8 @@ const ValoRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="valo-input-box">
+                <span className="valo-icon">
                   <i className="bx bxl-gmail"></i>
                 </span>
                 <input
@@ -116,8 +116,8 @@ const ValoRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="valo-input-box">
+                <span className="valo-icon">
                   <i className="bx bxs-lock-alt"></i>
                 </span>
                 <input
@@ -130,8 +130,8 @@ const ValoRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="valo-input-box">
+                <span className="valo-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -142,8 +142,8 @@ const ValoRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="valo-input-box">
+                <span className="valo-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -157,7 +157,7 @@ const ValoRegister = () => {
 
               <input
                 type="submit"
-                className="btn"
+                className="valo-btn"
                 name="register"
                 value="Register"
               />

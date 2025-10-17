@@ -17,9 +17,9 @@ const CocRegister = () => {
   return (
     <div>
       {/* Header Navigation */}
-      <header className="header">
-        <nav className="navbar">
-          <a href="index.html">Home</a>
+      <header className="coc-header">
+        <nav className="coc-navbar">
+          <a href="/">Home</a>
           <a href="update_index.html">News & Updates</a>
           <a
             href="https://www.youtube.com/channel/UC1HnomUTgEeItSfDI0Pak9g"
@@ -33,16 +33,16 @@ const CocRegister = () => {
       </header>
 
       {/* Background */}
-      <div className="background"></div>
+      <div className="coc-background"></div>
 
       {/* Main Container */}
-      <div className="container">
-        <div className="content">
-          <div className="esports">
-            <h2 className="logo">eSports</h2>
+      <div className="coc-container">
+        <div className="coc-content">
+          <div className="coc-esports">
+            <h2 className="coc-logo">eSports</h2>
           </div>
 
-          <div className="text-sci">
+          <div className="coc-text-sci">
             <h2>
               Welcome!
               <br />
@@ -52,7 +52,7 @@ const CocRegister = () => {
               Fill the information given to participate in the Clash of Clans
               eSports Tournament
             </p>
-            <div className="social-icons">
+            <div className="coc-social-icons">
               <a href="#">
                 <i className="bx bxl-twitter"></i>
               </a>
@@ -70,13 +70,13 @@ const CocRegister = () => {
         </div>
 
         {/* Registration Form */}
-        <div className={`logreg-box${isRegisterActive ? " active" : ""}`}>
-          <div className="form-box login">
+        <div className={`coc-logreg-box${isRegisterActive ? " active" : ""}`}>
+          <div className="coc-form-box coc-login">
             <form action="coc_contact_thanks_index.php" method="POST">
               <h2>Registration Form</h2>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="coc-input-box">
+                <span className="coc-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -88,8 +88,8 @@ const CocRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="coc-input-box">
+                <span className="coc-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -103,8 +103,8 @@ const CocRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="coc-input-box">
+                <span className="coc-icon">
                   <i className="bx bxl-gmail"></i>
                 </span>
                 <input
@@ -116,8 +116,8 @@ const CocRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="coc-input-box">
+                <span className="coc-icon">
                   <i className="bx bxs-lock-alt"></i>
                 </span>
                 <input
@@ -130,8 +130,8 @@ const CocRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="coc-input-box">
+                <span className="coc-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -142,8 +142,8 @@ const CocRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="coc-input-box">
+                <span className="coc-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -157,7 +157,7 @@ const CocRegister = () => {
 
               <input
                 type="submit"
-                className="btn"
+                className="coc-btn"
                 name="register"
                 value="Register"
               />

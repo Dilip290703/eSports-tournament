@@ -5,20 +5,19 @@ import "boxicons/css/boxicons.min.css";
 const BgmiRegister = () => {
   const [isRegisterActive, setIsRegisterActive] = useState(false);
 
-  // ✅ Phone number validation
   const validatePhoneNumber = (e) => {
-    let value = e.target.value.replace(/\D/g, ""); // remove non-numbers
+    let value = e.target.value.replace(/\D/g, "");
     if (value.length > 10) {
-      value = value.slice(0, 10); // limit to 10 digits
+      value = value.slice(0, 10);
     }
     e.target.value = value;
   };
 
   return (
     <div>
-      {/* Header Navigation */}
-      <header className="header">
-        <nav className="navbar">
+      {/* Header */}
+      <header className="bgmi-header">
+        <nav className="bgmi-navbar">
           <a href="/">Home</a>
           <a href="/update_index.html">News & Updates</a>
           <a
@@ -33,16 +32,16 @@ const BgmiRegister = () => {
       </header>
 
       {/* Background */}
-      <div className="background"></div>
+      <div className="bgmi-background"></div>
 
-      {/* Main Container */}
-      <div className="container">
-        <div className="content">
-          <div className="esports">
-            <h2 className="logo">eSports</h2>
+      {/* Container */}
+      <div className="bgmi-container">
+        <div className="bgmi-content">
+          <div className="bgmi-esports">
+            <h2 className="bgmi-logo">eSports</h2>
           </div>
 
-          <div className="text-sci">
+          <div className="bgmi-text-sci">
             <h2>
               Welcome!<br />
               <span>To Battlegrounds Mobile India</span>
@@ -51,7 +50,7 @@ const BgmiRegister = () => {
               Fill the information below to participate in the BGMI eSports
               Tournament
             </p>
-            <div className="social-icons">
+            <div className="bgmi-social-icons">
               <a href="#"><i className="bx bxl-twitter"></i></a>
               <a href="#"><i className="bx bxl-facebook"></i></a>
               <a href="#"><i className="bx bxl-telegram"></i></a>
@@ -60,34 +59,14 @@ const BgmiRegister = () => {
           </div>
         </div>
 
-        {/* Registration/Login Toggle Links */}
-       {/* <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-          <button
-            className="register-link"
-            onClick={() => setIsRegisterActive(true)}
-            style={{ marginRight: "10px" }}
-          >
-            Register
-          </button>
-          <button
-            className="login-link"
-            onClick={() => setIsRegisterActive(false)}
-          >
-            Login
-          </button>
-        </div> */}
-
         {/* Registration Form */}
-        <div className={`logreg-box${isRegisterActive ? " active" : ""}`}>
-          <div className="form-box login">
-            <form
-              action="bgmi_contact_thanks_index.php"
-              method="POST"
-            >
+        <div className={`bgmi-logreg-box${isRegisterActive ? " active" : ""}`}>
+          <div className="bgmi-form-box bgmi-login">
+            <form action="bgmi_contact_thanks_index.php" method="POST">
               <h2>Registration Form</h2>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="bgmi-input-box">
+                <span className="bgmi-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -99,8 +78,8 @@ const BgmiRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="bgmi-input-box">
+                <span className="bgmi-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -114,8 +93,8 @@ const BgmiRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="bgmi-input-box">
+                <span className="bgmi-icon">
                   <i className="bx bxl-gmail"></i>
                 </span>
                 <input
@@ -127,8 +106,8 @@ const BgmiRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="bgmi-input-box">
+                <span className="bgmi-icon">
                   <i className="bx bxs-lock-alt"></i>
                 </span>
                 <input
@@ -141,8 +120,8 @@ const BgmiRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="bgmi-input-box">
+                <span className="bgmi-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -153,8 +132,8 @@ const BgmiRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="bgmi-input-box">
+                <span className="bgmi-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -168,7 +147,7 @@ const BgmiRegister = () => {
 
               <input
                 type="submit"
-                className="btn"
+                className="bgmi-btn"
                 name="register"
                 value="Register"
               />

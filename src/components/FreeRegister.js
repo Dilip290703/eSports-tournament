@@ -17,8 +17,8 @@ const FreefireRegister = () => {
   return (
     <div>
       {/* Header Navigation */}
-      <header className="header">
-        <nav className="navbar">
+      <header className="free-header">
+        <nav className="free-navbar">
           <a href="/">Home</a>
           <a href="/update_index.html">News & Updates</a>
           <a
@@ -33,16 +33,16 @@ const FreefireRegister = () => {
       </header>
 
       {/* Background */}
-      <div className="background"></div>
+      <div className="free-background"></div>
 
       {/* Main Container */}
-      <div className="container">
-        <div className="content">
-          <div className="esports">
-            <h2 className="logo">eSports</h2>
+      <div className="free-container">
+        <div className="free-content">
+          <div className="free-esports">
+            <h2 className="free-logo">eSports</h2>
           </div>
 
-          <div className="text-sci">
+          <div className="free-text-sci">
             <h2>
               Welcome!
               <br />
@@ -52,7 +52,7 @@ const FreefireRegister = () => {
               Fill the information below to participate in the Free Fire eSports
               Tournament
             </p>
-            <div className="social-icons">
+            <div className="free-social-icons">
               <a href="#">
                 <i className="bx bxl-twitter"></i>
               </a>
@@ -89,13 +89,13 @@ const FreefireRegister = () => {
         */}
 
         {/* Registration Form */}
-        <div className={`logreg-box${isRegisterActive ? " active" : ""}`}>
-          <div className="form-box login">
+        <div className={`free-logreg-box${isRegisterActive ? " active" : ""}`}>
+          <div className="free-form-box free-login">
             <form action="free_contact_thanks_index.php" method="POST">
               <h2>Registration Form</h2>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="free-input-box">
+                <span className="free-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -107,8 +107,8 @@ const FreefireRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="free-input-box">
+                <span className="free-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -122,8 +122,8 @@ const FreefireRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="free-input-box">
+                <span className="free-icon">
                   <i className="bx bxl-gmail"></i>
                 </span>
                 <input
@@ -135,8 +135,8 @@ const FreefireRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="free-input-box">
+                <span className="free-icon">
                   <i className="bx bxs-lock-alt"></i>
                 </span>
                 <input
@@ -149,8 +149,8 @@ const FreefireRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="free-input-box">
+                <span className="free-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -161,8 +161,8 @@ const FreefireRegister = () => {
                 />
               </div>
 
-              <div className="input-box">
-                <span className="icon">
+              <div className="free-input-box">
+                <span className="free-icon">
                   <i className="bx bx-user"></i>
                 </span>
                 <input
@@ -176,7 +176,7 @@ const FreefireRegister = () => {
 
               <input
                 type="submit"
-                className="btn"
+                className="free-btn"
                 name="register"
                 value="Register"
               />
