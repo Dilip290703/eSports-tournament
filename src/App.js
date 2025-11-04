@@ -6,6 +6,8 @@ import BgmiRegister from './components/BgmiRegister';
 import CocRegister from './components/CocRegister';
 import ValoRegister from './components/ValoRegister';
 import FreeRegister from './components/FreeRegister';
+import BgmiRules from './components/BgmiRules';
+import CocRules from './components/CocRules';
 
 const slidesData = [
   {
@@ -127,6 +129,8 @@ function App() {
         <Route path="/coc-register" element={<CocRegister />} />
         <Route path="/valo-register" element={<ValoRegister />} />
         <Route path="/freefire-register" element={<FreeRegister />} />
+        <Route path="/bgmi-rules" element={<BgmiRules />} />
+        <Route path="/coc-rules" element={<CocRules />} />
         {/* Add more routes for other registration and rules pages as needed */}
       </Routes>
     </Router>
