@@ -1,17 +1,56 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./coc_regi_style.css";
 import "boxicons/css/boxicons.min.css";
 
 const CocRegister = () => {
-  const [isRegisterActive, setIsRegisterActive] = useState(false);
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    age: "",
+    email: "",
+    phoneNumber: "",
+    dateOfBirth: "",
+    gameId: "",
+    game: "COC",
+  });
 
-  // ✅ Phone number validation
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const validatePhoneNumber = (e) => {
-    let value = e.target.value.replace(/\D/g, ""); // remove non-numbers
-    if (value.length > 10) {
-      value = value.slice(0, 10); // limit to 10 digits
+    let value = e.target.value.replace(/\D/g, "");
+    if (value.length > 10) value = value.slice(0, 10);
+    setFormData((prevState) => ({
+      ...prevState,
+      phoneNumber: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        alert("Registration successful!");
+        navigate("/registration-success");
+      } else {
+        alert(data.message || "Registration failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Registration failed. Please try again.");
     }
-    e.target.value = value;
   };
 
   return (
@@ -70,9 +109,9 @@ const CocRegister = () => {
         </div>
 
         {/* Registration Form */}
-        <div className={`coc-logreg-box${isRegisterActive ? " active" : ""}`}>
+        <div className="coc-logreg-box">
           <div className="coc-form-box coc-login">
-            <form action="coc_contact_thanks_index.php" method="POST">
+            <form onSubmit={handleSubmit}>
               <h2>Registration Form</h2>
 
               <div className="coc-input-box">
@@ -81,8 +120,9 @@ const CocRegister = () => {
                 </span>
                 <input
                   type="text"
-                  name="txtname"
-                  id="txtname"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Name"
                   required
                 />
@@ -94,8 +134,9 @@ const CocRegister = () => {
                 </span>
                 <input
                   type="number"
-                  id="txtage"
-                  name="txtage"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
                   min="18"
                   max="100"
                   placeholder="Age"
@@ -109,8 +150,9 @@ const CocRegister = () => {
                 </span>
                 <input
                   type="email"
-                  id="txtemail"
-                  name="txtemail"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Email"
                   required
                 />
@@ -121,12 +163,12 @@ const CocRegister = () => {
                   <i className="bx bxs-lock-alt"></i>
                 </span>
                 <input
-                  type="number"
-                  id="txtphonenumber"
-                  name="txtphonenumber"
+                  type="text"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={validatePhoneNumber}
                   placeholder="Phone Number"
                   required
-                  onInput={validatePhoneNumber}
                 />
               </div>
 
@@ -136,8 +178,9 @@ const CocRegister = () => {
                 </span>
                 <input
                   type="date"
-                  id="txtdob"
-                  name="txtdob"
+                  name="dateOfBirth"
+                  value={formData.dateOfBirth}
+                  onChange={handleChange}
                   placeholder="Date of Birth"
                 />
               </div>
@@ -147,9 +190,10 @@ const CocRegister = () => {
                   <i className="bx bx-user"></i>
                 </span>
                 <input
-                  type="number"
-                  id="txtgameid"
-                  name="txtgameid"
+                  type="text"
+                  name="gameId"
+                  value={formData.gameId}
+                  onChange={handleChange}
                   placeholder="Game ID"
                   required
                 />

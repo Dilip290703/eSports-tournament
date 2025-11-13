@@ -10,6 +10,7 @@ import BgmiRules from './components/BgmiRules';
 import CocRules from './components/CocRules';
 import ValoRules from './components/ValoRules';
 import FreeRules from './components/FreeRules';
+import Success from './components/Success';
 
 const slidesData = [
   {
@@ -135,6 +136,7 @@ function App() {
         <Route path="/coc-rules" element={<CocRules />} />
         <Route path="/valo-rules" element={<ValoRules />} />
         <Route path="/freefire-rules" element={<FreeRules />} />
+        <Route path="/registration-success" element={<Success />} />
         {/* Add more routes for other registration and rules pages as needed */}
       </Routes>
     </Router>

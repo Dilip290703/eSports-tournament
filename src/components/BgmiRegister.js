@@ -1,16 +1,63 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./bgmi_regi_style.css";
 import "boxicons/css/boxicons.min.css";
 
 const BgmiRegister = () => {
-  const [isRegisterActive, setIsRegisterActive] = useState(false);
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    age: "",
+    email: "",
+    phoneNumber: "",
+    dateOfBirth: "",
+    gameId: "",
+    game: "BGMI",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   const validatePhoneNumber = (e) => {
     let value = e.target.value.replace(/\D/g, "");
     if (value.length > 10) {
       value = value.slice(0, 10);
     }
-    e.target.value = value;
+    setFormData((prevState) => ({
+      ...prevState,
+      phoneNumber: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Registration successful!");
+        navigate("/registration-success");
+      } else {
+        alert(data.message || "Registration failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Registration failed. Please try again.");
+    }
   };
 
   return (
@@ -60,9 +107,9 @@ const BgmiRegister = () => {
         </div>
 
         {/* Registration Form */}
-        <div className={`bgmi-logreg-box${isRegisterActive ? " active" : ""}`}>
+        <div className="bgmi-logreg-box">
           <div className="bgmi-form-box bgmi-login">
-            <form action="bgmi_contact_thanks_index.php" method="POST">
+            <form onSubmit={handleSubmit}>
               <h2>Registration Form</h2>
 
               <div className="bgmi-input-box">
@@ -71,8 +118,9 @@ const BgmiRegister = () => {
                 </span>
                 <input
                   type="text"
-                  name="txtname"
-                  id="txtname"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Name"
                   required
                 />
@@ -84,8 +132,9 @@ const BgmiRegister = () => {
                 </span>
                 <input
                   type="number"
-                  id="txtage"
-                  name="txtage"
+                  name="age"
+                  value={formData.age}
+                  onChange={handleChange}
                   min="18"
                   max="100"
                   placeholder="Age"
@@ -99,8 +148,9 @@ const BgmiRegister = () => {
                 </span>
                 <input
                   type="email"
-                  id="txtemail"
-                  name="txtemail"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Email"
                   required
                 />
@@ -111,12 +161,12 @@ const BgmiRegister = () => {
                   <i className="bx bxs-lock-alt"></i>
                 </span>
                 <input
-                  type="number"
-                  id="txtphonenumber"
-                  name="txtphonenumber"
+                  type="text"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={validatePhoneNumber}
                   placeholder="Phone Number"
                   required
-                  onInput={validatePhoneNumber}
                 />
               </div>
 
@@ -126,8 +176,9 @@ const BgmiRegister = () => {
                 </span>
                 <input
                   type="date"
-                  id="txtdob"
-                  name="txtdob"
+                  name="dateOfBirth"
+                  value={formData.dateOfBirth}
+                  onChange={handleChange}
                   placeholder="Date of Birth"
                 />
               </div>
@@ -137,11 +188,12 @@ const BgmiRegister = () => {
                   <i className="bx bx-user"></i>
                 </span>
                 <input
-                  type="number"
-                  id="txtgameid"
-                  required
-                  name="txtgameid"
+                  type="text"
+                  name="gameId"
+                  value={formData.gameId}
+                  onChange={handleChange}
                   placeholder="Game ID"
+                  required
                 />
               </div>
 
